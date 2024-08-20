@@ -19,8 +19,8 @@ using namespace std;
 
 void leerLibros(ifstream &archLibros, struct Libro *arrLibros);
 void leerClientes(ifstream &archClientes, struct Cliente *arrClientes);
-void leerPedidos(ifstream &archPedidos, struct Libro *arrLibros, 
-        struct Libro *arrClientes);
+void leerPedidos(ifstream &archPedidos, struct Libro *&arrLibros, 
+        struct Cliente *&arrClientes);
 
 #endif /* FUNCIONESFINAL_H */
 

@@ -21,7 +21,28 @@ void leerClientes(ifstream &archClientes, struct Cliente *arrClientes){
     }
 }
 
-void leerPedidos(ifstream &archPedidos, struct Libro *arrLibros, 
-        struct Libro *arrClientes){
-    
+void leerPedidos(ifstream &archPedidos, struct Libro *&arrLibros, 
+        struct Cliente *&arrClientes){
+    int dni;
+    char buffer[10], c;
+    while(true){
+        struct LibroSolicitado libroPedido;
+        archPedidos >> libroPedido.numeroDePedido;
+        if(archPedidos.eof()) break;
+        archPedidos.get();
+        archPedidos >> dni;
+        archPedidos.get();
+        archPedidos >> ws;
+        while(true){
+            for(int i = 0; i < 7; i++){
+                archPedidos.get(c);
+                buffer[i] = c;
+            }
+            buffer[7] = '\0';
+            strcpy(libroPedido.codigoDelLibro, buffer);
+            archPedidos.get(c);
+            if(c == '\n' or archPedidos.eof()) break;
+            else archPedidos >> ws;
+        }
+    }
 }
