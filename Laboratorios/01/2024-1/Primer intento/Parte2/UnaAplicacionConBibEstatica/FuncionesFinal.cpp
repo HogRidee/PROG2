@@ -54,8 +54,22 @@ void procesarPedido(struct LibroSolicitado libroPedido, struct Libro *&arrLibros
     if(libroPedido >> arrLibros){
         for(int i = 0; arrClientes[i].dni != 0; i++){
             if(arrClientes[i].dni == dni){
-                
+                arrClientes[i] << libroPedido;
             }
         }
     }
+}
+
+void imprimirReporte(ofstream &archReporte, struct Libro *arrLibros, 
+        struct Cliente *arrClientes){
+    archReporte << left << setw(30) << " " << "REPORTE DE PEDIDOS DE LIBROS"
+            << endl;
+    imprimirLinea(archReporte, 100, '=');
+    
+}
+
+void imprimirLinea(ofstream &arch, int n, char c){
+    for(int i = 0; i < n; i++)
+        arch.put(c);
+    arch << endl;
 }

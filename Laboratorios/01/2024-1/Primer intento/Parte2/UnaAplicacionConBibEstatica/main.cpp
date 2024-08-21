@@ -18,10 +18,13 @@ using namespace std;
 int main(int argc, char** argv) {
 
     ifstream archLibros, archClientes, archPedidos;
+    ofstream archReporte;
     
     AperturaDeUnArchivoDeTextosParaLeer(archLibros, "Libros.csv");
     AperturaDeUnArchivoDeTextosParaLeer(archClientes, "Cientes.csv");
     AperturaDeUnArchivoDeTextosParaLeer(archPedidos, "Pedidos.txt");
+    
+    AperturaDeUnArchivoDeTextosParaEscribir(archReporte, "Reporte.txt");
     
     struct Libro *arrLibros = nullptr;
     arrLibros = new struct Libro[300];
@@ -32,6 +35,7 @@ int main(int argc, char** argv) {
     leerLibros(archLibros, arrLibros);
     leerClientes(archClientes, arrClientes);
     leerPedidos(archPedidos, arrLibros, arrClientes);
+    imprimirReporte(archReporte, arrLibros, arrClientes);
     
     return 0;
 }

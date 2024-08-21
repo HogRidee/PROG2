@@ -23,7 +23,9 @@ void leerPedidos(ifstream &archPedidos, struct Libro *&arrLibros,
         struct Cliente *&arrClientes);
 void procesarPedido(struct LibroSolicitado libroPedido, struct Libro *&arrLibros, 
         struct Cliente *&arrClientes, int dni);
-
+void imprimirReporte(ofstream &archReporte, struct Libro *arrLibros, 
+        struct Cliente *arrClientes);
+void imprimirLinea(ofstream &arch, int n, char c);
 
 #endif /* FUNCIONESFINAL_H */
 
