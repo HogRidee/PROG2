@@ -65,7 +65,18 @@ void imprimirReporte(ofstream &archReporte, struct Libro *arrLibros,
     archReporte << left << setw(30) << " " << "REPORTE DE PEDIDOS DE LIBROS"
             << endl;
     imprimirLinea(archReporte, 100, '=');
-    
+    for(int i = 0; i < arrClientes[i].dni != 0; i++){
+        ++arrClientes[i];
+        archReporte << arrClientes[i];
+        imprimirLinea(archReporte, 100, '-');
+    }
+    archReporte << left << setw(30) << " " << "REPORTE DE LIBROS"
+            << endl;
+    imprimirLinea(archReporte, 100, '=');
+    for(int i = 0; strcmp(arrLibros[i].codigo, "FIN") != 0; i++){
+        archReporte << arrLibros[i];
+        imprimirLinea(archReporte, 100, '-');
+    }
 }
 
 void imprimirLinea(ofstream &arch, int n, char c){
