@@ -1,8 +1,8 @@
 /* 
  * File:   main.cpp
- * Author: ivana
+ * Author: Ivan
  *
- * Created on 27 de agosto de 2024, 03:55 PM
+ * Created on 2 de septiembre de 2024, 13:24
  */
 
 #include <iostream>
@@ -62,4 +62,3 @@ int main(int argc, char** argv) {
     
     return 0;
 }
-
