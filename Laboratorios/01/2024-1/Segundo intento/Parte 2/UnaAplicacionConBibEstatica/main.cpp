@@ -22,6 +22,7 @@ int main(int argc, char** argv) {
     leerLibros(arrLibros, "Libros.csv");
     leerClientes(arrClientes, "Cientes.csv");
     leerPedidos(arrLibros, arrClientes, "Pedidos.txt");
+    emitirReporte(arrLibros, arrClientes);
     
     return 0;
 }
