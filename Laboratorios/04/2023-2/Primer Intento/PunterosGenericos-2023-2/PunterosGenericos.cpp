@@ -106,13 +106,14 @@ void *leerCliente(ifstream &arch){
     return cliente;
 }
 
+//FRACASÉ
 void cargapedidos(void *productos, void *clientes){
     ifstream arch("Pedidos2.csv", ios::in);
     if(not arch.is_open()){
         cout << "ERROR: No se pudo abrir el archivo Pedidos2.csv" << endl;
         exit(1);
     }
-    void *buffer[200]{};
+    void **buffer[200]{}, ***pedidos;
     for(int i = 0; i < 200; i++) buffer[i] = new void*[50]{};
     int dni, cant, nP[200]{}, pos;
     char *codigo;
@@ -131,6 +132,20 @@ void cargapedidos(void *productos, void *clientes){
         }
         delete codigo;
     }
+    int nClientes = devolverCantClientes(clientes);
+    void **cli = (void**)clientes;
+    pedidos = new void**[nClientes+1]{};
+    for(int i = 0; i < nClientes; i++){
+        pedidos[i] = new void*[nP[i]+1]{};
+        for(int j = 0; j < nP[i]; j++){
+            void **ped = (void**)buffer[i];
+            void **pedido = (void**)pedidos[i];
+            pedido[j] = ped[j];
+        }
+        void **info = (void**)cli[i];
+        info[2] = pedidos[i];
+    }
+    imprimerepfinal(clientes);
 }
 
 int buscarCliente(void *clientes, int dni){
@@ -226,7 +241,22 @@ void *crearPedido(void *producto, int cant){
 }
 
 void disminuirLC(void *cliente, void *producto, int cant){
-    
+    void **info = (void**)cliente;
+    void **infoP = (void**)producto;
+    double *lC = (double*)info[3];
+    double *precio = (double*)infoP[2];
+    double total;
+    total = cant * (*precio);
+    *lC = (*lC) - total;
+}
+
+int devolverCantClientes(void *cliente){
+    void **clientes = (void**)cliente;
+    int i = 0;
+    for(i = 0; clientes[i]; i++){
+        
+    }
+    return i;
 }
 
 void imprimereporte(void *clientes){

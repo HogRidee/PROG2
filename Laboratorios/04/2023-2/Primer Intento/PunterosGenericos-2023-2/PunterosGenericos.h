@@ -34,6 +34,7 @@ bool verificarCredito(void *producto, void *cliente, int cant);
 void asignarPedido(void *buffer, void *producto, int cant);
 void *crearPedido(void *producto, int cant);
 void disminuirLC(void *cliente, void *producto, int cant);
+int devolverCantClientes(void *cliente);
 void imprimereporte(void *clientes);
 
 #endif /* PUNTEROSGENERICOS_H */
