@@ -2,7 +2,7 @@
  * File:   main.cpp
  * Author: Ivan
  *
- * Created on 9 de octubre de 2024, 13:49
+ * Created on 10 de octubre de 2024, 11:01
  */
 
 #include "BibliotecaGenerica.h"

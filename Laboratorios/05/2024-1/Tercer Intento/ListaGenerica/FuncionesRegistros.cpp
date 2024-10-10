@@ -1,8 +1,8 @@
 #include "FuncionesRegistros.h"
 
 void *leeregistro(ifstream &arch){
-    void **reg;
-    int np, dni, *nPed, *d;
+    void **registro;
+    int np, dni, *n, *d;
     char *cod;
     arch >> np;
     if(arch.eof()) return nullptr;
@@ -10,15 +10,15 @@ void *leeregistro(ifstream &arch){
     arch >> dni;
     arch.get();
     cod = leerCadena(arch, 20, '\n');
-    nPed = new int;
+    n = new int;
     d = new int;
-    *nPed = np;
+    *n = np;
     *d = dni;
-    reg = new void*[3]{};
-    reg[0] = nPed;
-    reg[1] = d;
-    reg[2] = cod;
-    return reg;
+    registro = new void*[3]{};
+    registro[0] = n;
+    registro[1] = d;
+    registro[2] = cod;
+    return registro;
 }
 
 char *leerCadena(ifstream &arch, int n, char c){
@@ -43,7 +43,7 @@ void imprimeregistro(ofstream &arch, void *dato){
 int cmpregistro(const void *a, const void *b){
     void **infoa = (void**)a;
     void **infob = (void**)b;
-    int *datoa = (int*)infoa[0];
-    int *datob = (int*)infob[0];
-    return *datoa - *datob;
+    int *npa = (int*)infoa[0];
+    int *npb = (int*)infob[0];
+    return *npa - *npb;
 }

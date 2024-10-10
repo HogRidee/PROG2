@@ -2,7 +2,7 @@
  * File:   FuncionesRegistros.h
  * Author: Ivan
  *
- * Created on 9 de octubre de 2024, 13:50
+ * Created on 10 de octubre de 2024, 11:06
  */
 
 #ifndef FUNCIONESREGISTROS_H
