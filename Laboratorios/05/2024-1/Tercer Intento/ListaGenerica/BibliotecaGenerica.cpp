@@ -22,9 +22,9 @@ void inicializarLista(void *&lista){
 
 void inserta(void *lista, void *dato){
     void **p = (void**)lista, **ant = nullptr, **nuevo;
-    void **recorrido = (void**)p[0];
     nuevo = new void*[2]{};
     nuevo[0] = dato;
+    void **recorrido = (void**)p[0];
     while(recorrido){
         ant = recorrido;
         recorrido = (void**)recorrido[1];
@@ -39,6 +39,10 @@ void inserta(void *lista, void *dato){
 void imprimelista(void *lista, void (*imprime)(ofstream &, void *dato), 
         const char *filename){
     ofstream arch(filename, ios::out);
+    if(not arch.is_open()){
+        cout << "ERROR: No se pudo abrir el archivo " << filename << endl;
+        exit(1);
+    }
     void **p = (void**)lista;
     void **recorrido = (void**)p[0];
     while(recorrido){
@@ -56,14 +60,15 @@ void *quitalista(void *lista){
     void **p = (void**)lista;
     void **cabeza = (void**)p[0];
     void **nuevaCabeza = (void**)cabeza[1];
-    p[0] = nuevaCabeza;
     void *dato = cabeza[0];
+    p[0] = nuevaCabeza;
     delete cabeza;
     return dato;
 }
 
-void combinalista(void *lista1, void *lista2, void *listaf, 
+void combinalista(void *lista1, void *lista2, void *&listaf, 
         int (*cmp)(const void *, const void *)){
+    inicializarLista(listaf);
     void **p1 = (void**)lista1;
     void **p2 = (void**)lista2;
     void **rec1 = (void**)p1[0];

@@ -22,7 +22,7 @@ void imprimelista(void *lista, void (*imprime)(ofstream &, void *dato),
         const char *filename);
 bool listavacia(void *lista);
 void *quitalista(void *lista);
-void combinalista(void *lista1, void *lista2, void *listaf, 
+void combinalista(void *lista1, void *lista2, void *&listaf, 
         int (*cmp)(const void *, const void *));
 
 #endif /* BIBLIOTECAGENERICA_H */
