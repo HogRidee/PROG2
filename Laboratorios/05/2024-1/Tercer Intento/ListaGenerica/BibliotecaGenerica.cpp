@@ -7,6 +7,7 @@ void crealista(void *&lista, void *(*lee)(ifstream &), const char *filename){
         exit(1);
     }
     void *dato;
+    lista = nullptr;
     inicializarLista(lista);
     while(true){
         dato = lee(arch);
