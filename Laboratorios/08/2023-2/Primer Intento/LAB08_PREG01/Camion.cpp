@@ -35,3 +35,10 @@ int Camion::GetEjes() const {
     return ejes;
 }
 
+void Camion::lee(ifstream& arch) {
+    Vehiculo::lee(arch);
+    arch >> ejes;
+    arch.get();
+    arch >> llantas;
+    arch.get();
+}

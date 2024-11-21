@@ -23,3 +23,21 @@ NodoLista::~NodoLista() {
     delete unidad;
 }
 
+void NodoLista::asignaMemoria(char tipo) {
+    switch(tipo){
+        case 'F':
+            unidad = new class Furgon;
+            break;
+        case 'C':
+            unidad = new class Camion;
+            break;
+    }
+}
+
+void NodoLista::leeDatos(ifstream& arch) {
+    unidad->lee(arch);
+}
+
+void NodoLista::imprime(ofstream& arch) {
+    
+}

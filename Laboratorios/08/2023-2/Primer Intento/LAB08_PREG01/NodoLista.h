@@ -8,6 +8,8 @@
 #ifndef NODOLISTA_H
 #define NODOLISTA_H
 
+#include "Camion.h"
+#include "Furgon.h"
 #include "Vehiculo.h"
 
 class NodoLista {
@@ -18,6 +20,11 @@ public:
     NodoLista();
     NodoLista(const NodoLista& orig);
     virtual ~NodoLista();
+    friend class LVehiculos;
+    
+    void asignaMemoria(char tipo);
+    void leeDatos(ifstream &arch);
+    void imprime(ofstream &arch);
 };
 
 #endif /* NODOLISTA_H */

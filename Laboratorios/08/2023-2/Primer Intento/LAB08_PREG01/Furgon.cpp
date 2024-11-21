@@ -35,3 +35,10 @@ int Furgon::GetFilas() const {
     return filas;
 }
 
+void Furgon::lee(ifstream& arch) {
+    Vehiculo::lee(arch);
+    arch >> filas;
+    arch.get();
+    arch >> puertas;
+    arch.get();
+}

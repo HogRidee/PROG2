@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Camion.o \
+	${OBJECTDIR}/Flota.o \
 	${OBJECTDIR}/Furgon.o \
 	${OBJECTDIR}/LVehiculos.o \
 	${OBJECTDIR}/NPedido.o \
@@ -72,6 +73,11 @@ ${OBJECTDIR}/Camion.o: Camion.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Camion.o Camion.cpp
+
+${OBJECTDIR}/Flota.o: Flota.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Flota.o Flota.cpp
 
 ${OBJECTDIR}/Furgon.o: Furgon.cpp
 	${MKDIR} -p ${OBJECTDIR}

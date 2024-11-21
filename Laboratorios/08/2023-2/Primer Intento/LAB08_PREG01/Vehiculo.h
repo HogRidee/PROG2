@@ -29,6 +29,7 @@ public:
     void GetPlaca(char *plac) const;
     void SetCliente(int cliente);
     int GetCliente() const;
+    virtual void lee(ifstream &arch);
 };
 
 #endif /* VEHICULO_H */

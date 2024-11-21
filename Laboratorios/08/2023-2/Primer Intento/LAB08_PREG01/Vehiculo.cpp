@@ -61,3 +61,13 @@ int Vehiculo::GetCliente() const {
     return cliente;
 }
 
+void Vehiculo::lee(ifstream& arch) {
+    char plac[20];
+    arch >> cliente;
+    arch.get();
+    arch.getline(plac, 20, ',');
+    SetPlaca(plac);
+    arch >> maxcarga;
+    arch.get();
+}
+

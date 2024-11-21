@@ -19,7 +19,37 @@ LVehiculos::LVehiculos(const LVehiculos& orig) {
 }
 
 LVehiculos::~LVehiculos() {
-    delete lfin;
-    delete lini;
+    elimina();
 }
 
+void LVehiculos::elimina() {
+    class NodoLista *sale;
+    while(lini){
+        sale = lini;
+        lini = lini->sig;
+        delete sale;
+    }
+}
+
+void LVehiculos::inserta(ifstream& arch, char tipo) {
+    class NodoLista *pini = lini, *pfin = lfin, *nuevo;
+    nuevo = new class NodoLista;
+    nuevo->asignaMemoria(tipo);
+    nuevo->leeDatos(arch);
+    if(pini == nullptr){
+        pini = nuevo;
+        pfin = nuevo;
+    }
+    else{
+        pfin->sig = nuevo;
+        pfin = nuevo;
+    }
+}
+
+void LVehiculos::imprime(ofstream& arch) {
+    class NodoLista *p = lini;
+    while(p){
+        p->imprime(arch);
+        p = p->sig; 
+    }
+}

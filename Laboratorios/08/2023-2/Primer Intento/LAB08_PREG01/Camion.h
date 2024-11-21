@@ -22,6 +22,8 @@ public:
     int GetLlantas() const;
     void SetEjes(int ejes);
     int GetEjes() const;
+    
+    void lee(ifstream &arch);
 };
 
 #endif /* CAMION_H */

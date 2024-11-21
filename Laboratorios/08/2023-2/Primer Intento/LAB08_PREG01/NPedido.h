@@ -8,7 +8,12 @@
 #ifndef NPEDIDO_H
 #define NPEDIDO_H
 
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 #include <cstring>
+
+using namespace std;
 
 class NPedido {
 private:

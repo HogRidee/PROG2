@@ -18,6 +18,10 @@ public:
     LVehiculos();
     LVehiculos(const LVehiculos& orig);
     virtual ~LVehiculos();
+    
+    void elimina();
+    void inserta(ifstream &arch, char tipo);
+    void imprime(ofstream &arch);
 };
 
 #endif /* LVEHICULOS_H */

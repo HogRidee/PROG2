@@ -22,6 +22,8 @@ public:
     int GetPuertas() const;
     void SetFilas(int filas);
     int GetFilas() const;
+    
+    void lee(ifstream &arch);
 };
 
 #endif /* FURGON_H */
